@@ -18,13 +18,14 @@
     {
       "name": "add-memory",
       "title": "Add Memory",
-      "subtitle": "add memory to your CogniMemo app",
+      "subtitle": "CogniMemo",
       "description": "Add text, URLs, or documents to your CogniMemo knowledge base",
       "mode": "view"
     },
     {
       "name": "search-memories",
       "title": "Search Memories",
+      "subtitle": "CogniMemo",
       "description": "Search through your saved memories and find relevant information",
       "mode": "view"
     }

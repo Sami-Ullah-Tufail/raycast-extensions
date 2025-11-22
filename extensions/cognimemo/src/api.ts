@@ -49,7 +49,7 @@ export interface SearchResponse {
 
 const API_BASE_URL = "http://api.cognimemo.com";
 
-class SupermemoryAPIError extends Error {
+class CognimemoAPIError extends Error {
   constructor(
     message: string,
     public status?: number,
@@ -143,13 +143,13 @@ async function makeAuthenticatedRequest<T>(
         errorMessage = errorBody.message;
       }
 
-      throw new SupermemoryAPIError(errorMessage, response.status);
+      throw new CognimemoAPIError(errorMessage, response.status);
     }
 
     if (!response.headers.get("content-type")?.includes("application/json")) {
       const text = await response.text();
       console.log("[API Response (non-JSON)]", text.substring(0, 200));
-      throw new SupermemoryAPIError("Invalid response format from API");
+      throw new CognimemoAPIError("Invalid response format from API");
     }
 
     const data = (await response.json()) as T;
@@ -158,7 +158,7 @@ async function makeAuthenticatedRequest<T>(
   } catch (err) {
     if (
       err instanceof AuthenticationError ||
-      err instanceof SupermemoryAPIError
+      err instanceof CognimemoAPIError
     ) {
       console.error("[API Error]", err.message);
       throw err;
@@ -166,7 +166,7 @@ async function makeAuthenticatedRequest<T>(
 
     // Handle network errors or other fetch errors
     console.error("[API Network Error]", err);
-    throw new SupermemoryAPIError(
+    throw new CognimemoAPIError(
       `Network error: ${err instanceof Error ? err.message : "Unknown error"}`,
     );
   }
