@@ -47,7 +47,7 @@ export interface SearchResponse {
   total: number;
 }
 
-const API_BASE_URL = "http://api.cognimemo.com";
+const API_BASE_URL = "https://api.cognimemo.com";
 
 class CognimemoAPIError extends Error {
   constructor(
