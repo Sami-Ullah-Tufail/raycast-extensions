@@ -1,4 +1,4 @@
-# Raycast Extension for CogniMemo
+# CogniMemo
 
 A Raycast extension that lets you add memories and search through your CogniMemo collection directly from Raycast.
 
